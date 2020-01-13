@@ -15,6 +15,8 @@ If you want to see which products we currently have in the database, you can pre
 If you want to add another product to the database you can click the "Create product" button and you will be directed to this page:
 ![Creation page](https://i.imgur.com/a9AioS5.png)
 
+The pages that are not meant to be seen by the customer is written in English.
+
 ### Install Dependencies
 
 $ yarn 
