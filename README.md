@@ -1,12 +1,12 @@
 
 ### Install Dependencies
 
-# using yarn
 $ yarn 
 
-# development mode
+
+### Running App
+
 $ yarn dev
 
-# production build
 $ yarn build
-```
+
