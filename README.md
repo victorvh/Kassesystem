@@ -4,9 +4,6 @@
 # using yarn
 $ yarn 
 
-
-### Use it
-
 # development mode
 $ yarn dev
 
