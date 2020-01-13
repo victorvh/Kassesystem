@@ -1,16 +1,22 @@
 import React from "react";
 import Product from "../../server/entities/Product";
 import * as S from "./styles";
+import { useCart, CartProduct } from "../../context/Cart";
+import { formatter } from "../../helpers/formatter";
 
-const formatter = new Intl.NumberFormat("da", {
-  style: "currency",
-  currency: "DKK"
-});
+type ProductProps = {
+  product: CartProduct;
+};
 
-type ProductProps = { product: Product };
 const ProductItem = ({ product }: ProductProps) => {
+  const cart = useCart();
+
+  const handleRemoveClick = () => {
+    cart.removeProduct(product.uuid);
+  };
+
   return (
-    <S.Product>
+    <S.Product onClick={handleRemoveClick}>
       <S.ProductImage />
       <S.ProductInfo>
         <S.ProductBrand>{product.brand}</S.ProductBrand>

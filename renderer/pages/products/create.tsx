@@ -7,6 +7,9 @@ const CreateProductsPage = () => {
     <div>
       <h1>Create your product</h1>
       <CreateProductForm />
+      <Link href="/home">
+        <a>Go Home</a>
+      </Link>
     </div>
   );
 };

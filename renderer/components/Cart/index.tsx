@@ -4,18 +4,18 @@ import { mutate } from "swr";
 import * as S from "./styles";
 import { useCart } from "../../context/Cart";
 import ProductItem from "./ProductItem";
-
-const currencyFormatter = new Intl.NumberFormat("da", {
-  style: "currency",
-  currency: "DKK"
-});
+import ProductList from "./ProductList";
+import { formatter } from "../../helpers/formatter";
 
 const Cart = () => {
   const cart = useCart();
+
   const formik = useFormik({
     initialValues: {},
 
     onSubmit: async values => {
+      if (cart.products.length < 1) return;
+
       formik.setSubmitting(true);
 
       const res = await fetch("/api/purchases", {
@@ -43,18 +43,12 @@ const Cart = () => {
     <S.Container>
       <S.Heading>Dine varer</S.Heading>
 
-      <S.Products>
-        <S.List>
-          {cart.products.map(p => (
-            <ProductItem product={p} />
-          ))}
-        </S.List>
-      </S.Products>
+      <ProductList products={cart.products} />
 
       <div>
         <S.Price>
           <div>I alt</div>
-          <div>{currencyFormatter.format(cart.total / 100)}</div>
+          <div>{formatter.format(cart.total / 100)}</div>
         </S.Price>
 
         <form onSubmit={formik.handleSubmit}>

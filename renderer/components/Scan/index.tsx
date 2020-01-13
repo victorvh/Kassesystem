@@ -20,7 +20,7 @@ const Scan = () => {
 
       const products: Product[] = await res.json();
 
-      cart.addProduct(products[0]);
+      if (products[0] !== undefined) cart.addProduct(products[0]);
     }
   };
 

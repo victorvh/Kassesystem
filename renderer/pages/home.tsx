@@ -11,9 +11,29 @@ const Home = () => {
       <Scan />
       <Cart />
 
-      {/* <Link href="/products/create">Create</Link> */}
+      <Navigation>
+        <Link href="/products">
+          <a>Se varekatalog</a>
+        </Link>
+        <Link href="/purchases">
+          <a> Se køb</a>
+        </Link>
+      </Navigation>
     </HomeLayout>
   );
 };
+
+const Navigation = styled.nav`
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-column-gap: 1rem;
+  position: absolute;
+  bottom: 4rem;
+  left: 4rem;
+  > a {
+    text-decoration: none;
+    color: black;
+  }
+`;
 
 export default Home;
